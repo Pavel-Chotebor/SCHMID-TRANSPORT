@@ -1,8 +1,8 @@
-import {Accordion, AccordionDetails, AccordionSummary, Typography} from "@mui/material";
+import {Accordion, AccordionDetails, AccordionSummary, Container, Typography} from "@mui/material";
 
 export const Faq = (): JSX.Element => {
     return (
-        <>
+        <Container maxWidth={"md"} >
             <Accordion>
                 <AccordionSummary
                     // expandIcon={<ExpandMoreIcon/>}
@@ -33,15 +33,6 @@ export const Faq = (): JSX.Element => {
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-            <Accordion>
-                <AccordionSummary
-                    // expandIcon={<ExpandMoreIcon/>}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                >
-                    <Typography>ITEM 3</Typography>
-                </AccordionSummary>
-            </Accordion>
-        </>
+        </Container>
     )
 }

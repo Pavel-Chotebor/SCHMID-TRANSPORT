@@ -2,10 +2,9 @@ import {
     AppBar,
     Button,
     Drawer,
-    IconButton, Link,
+    IconButton,
     ListItem,
     ListItemIcon,
-    ListItemText,
     Toolbar,
     useMediaQuery,
 } from "@mui/material";
@@ -14,8 +13,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import InfoIcon from '@mui/icons-material/Info';
 
 export const AppHeader = () => {
-    const matches = !useMediaQuery('(min-width:600px)');
     const [open, setOpen] = useState(false)
+    const matches = !useMediaQuery('(min-width:600px)');
 
     const pageLinks = [
         {name: "O NÁS", link: "#oNas", icon: <InfoIcon/>},
@@ -58,12 +57,12 @@ export const AppHeader = () => {
                 </>
             ) : (
                 <>
-                    <Button style={{fontFamily: "Pathway Gothic One", fontSize: "24px"}}
-                            color="inherit">O NÁS</Button>
-                    <Button style={{fontFamily: "Pathway Gothic One", fontSize: "24px"}}
-                            color="inherit">REFERENCE</Button>
-                    <Button style={{fontFamily: "Pathway Gothic One", fontSize: "24px"}}
-                            color="inherit">CENÍK</Button>
+                    <Button
+                        color="inherit">O NÁS</Button>
+                    <Button
+                        color="inherit">REFERENCE</Button>
+                    <Button
+                        color="inherit">CENÍK</Button>
                 </>
             )}
         </Toolbar>

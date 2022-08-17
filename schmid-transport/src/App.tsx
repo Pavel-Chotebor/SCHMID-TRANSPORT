@@ -1,12 +1,10 @@
 import './App.css';
-import {ReservationForm} from "./lib/Reservation/ReservationForm/ReservationForm";
-import {Faq} from "./lib/Reservation/FAQ/Faq";
+import {ReservationOverview} from "./pages/ReservationOverview";
 
 function App() {
     return (
         <div className="App">
-            <ReservationForm />
-            <Faq />
+            <ReservationOverview />
         </div>
     );
 }
