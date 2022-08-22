@@ -8,8 +8,7 @@ export interface ApiState {
 
 export const useTestData = ():ApiState => {
     const fetcher = () => fetch("https://api.coindesk.com/v1/bpi/currentprice.json").then(res => res.json())
-    const { data, error } = useSWR("TEST2", fetcher)
-
+    const { data, error,mutate } = useSWR("TEST2", fetcher)
 
     return {
         data,

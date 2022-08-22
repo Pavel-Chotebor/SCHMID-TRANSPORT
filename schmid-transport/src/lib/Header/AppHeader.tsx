@@ -5,7 +5,7 @@ import {
     IconButton,
     ListItem,
     ListItemIcon,
-    Toolbar,
+    Toolbar, Typography,
     useMediaQuery,
 } from "@mui/material";
 import {useState} from "react";
@@ -17,9 +17,9 @@ export const AppHeader = () => {
     const matches = !useMediaQuery('(min-width:600px)');
 
     const pageLinks = [
-        {name: "O NÁS", link: "#oNas", icon: <InfoIcon/>},
-        {name: "NAŠE SLUŽBY", link: "#sluzby", icon: <InfoIcon/>},
-        {name: "KONTAKTY", link: "#kontakty", icon: <InfoIcon/>}
+        {name: "REZERVACE", link: "#rezervace", icon: <InfoIcon/>},
+        {name: "KONTAKTY", link: "#kontakty", icon: <InfoIcon/>},
+        {name: "FAQ", link: "#faq", icon: <InfoIcon/>}
     ]
 
     return (
@@ -47,9 +47,7 @@ export const AppHeader = () => {
                                 <ListItemIcon>
                                     {l.icon}
                                 </ListItemIcon>
-                                {/*<Link underline={"none"} color={"black"} href={l.link}>*/}
-                                {/*    <ListItemText fontFamily="Pathway Gothic One" primary={l.name}/>*/}
-                                {/*</Link>*/}
+
                             </ListItem>
                         ))}
                     </Drawer>
@@ -57,12 +55,17 @@ export const AppHeader = () => {
                 </>
             ) : (
                 <>
-                    <Button
-                        color="inherit">O NÁS</Button>
-                    <Button
-                        color="inherit">REFERENCE</Button>
-                    <Button
-                        color="inherit">CENÍK</Button>
+                    <Typography style={{
+                        fontFamily: "Caveat, cursive",
+                        fontSize: "20px",
+                        marginRight: "20px"
+                    }}>SCHMID TRANSPORT
+                    </Typography>
+                    {pageLinks.map((l) => (
+                        <Button sx={{color: "white"}} href={l.link}>
+                            {l.name}
+                        </Button>
+                    ))}
                 </>
             )}
         </Toolbar>

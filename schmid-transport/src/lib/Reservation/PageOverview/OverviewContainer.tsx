@@ -1,4 +1,5 @@
-import {Box, Button, Typography} from "@mui/material";
+import {Button, Typography, useMediaQuery} from "@mui/material";
+import {EventNote} from "@mui/icons-material";
 
 interface OverviewContainerProps {
     setIsOpen: (isOpen: boolean) => void
@@ -6,11 +7,16 @@ interface OverviewContainerProps {
 
 //todo
 export const OverviewContainer = ({setIsOpen}: OverviewContainerProps): JSX.Element => {
+    const matches = !useMediaQuery('(min-width:1100px)');
+
+
     return (
-        <>
-            <div style={{
-                flex: 1,
-            }}>
+        <div id={"rezervace"}
+             style={{
+            maxWidth: "100%",
+            maxHeight: "100%",
+            objectFit: "cover"}
+             }>
                 <img style={{
                     maxWidth: "100%",
                     maxHeight: "100%",
@@ -19,35 +25,26 @@ export const OverviewContainer = ({setIsOpen}: OverviewContainerProps): JSX.Elem
                      src={"https://www.ford.cz/content/dam/guxeu/rhd/central/cvs/2019-transit-van/launch/billboards-3-0/nameplate/ford-transit_van_trail-eu-V363_TRANSIT_TRAIL_FR_3_4_DYNAMIC_SHOT_24_01e-21x9-2160x925-np3.jpg.renditions.original.png"}
 
                 />
-            </div>
-            <Box display="flex" flexDirection="column">
-                <Typography style={{
+            <Button
+                variant="outlined" size="large" startIcon={<EventNote/>} onClick={() => setIsOpen(true)} style={
+                {
+                    borderRadius: 0,
+                    background: "rgba(0, 0, 0, .6)",
                     position: "absolute",
-                    top: "15%",
-                    left: "20%",
-                    color: "white",
-                    fontFamily: "Caveat, cursive",
-                    fontSize: "75px"
-                }}>SCHMID</Typography>
-                <Typography style={{
-                    position: "absolute",
-                    top: "23%",
-                    left: "21%",
-                    color: "white",
-                    fontFamily: "Caveat, cursive",
-                    fontSize: "75px"
-                }}>TRANSPORT</Typography>
-                <Button style={{
-                    position: "absolute",
-                    backgroundColor: "white",
-                    padding: "45px",
-                    color: "black",
+                    left: "50%",
                     top: "40%",
-                    left: "24%"
-                }} variant="contained" size="large" onClick={() => setIsOpen(true)}>
+                    transform: "translate(-50%, -40%)",
+                    padding: "3rem 6rem",
+                    color: "white",
+                    fontWeight: 900,
+                    border: "5px solid white"
+                }
+            }>
+                <Typography variant={"h5"}>
                     REZERVOVAT
-                </Button>
-            </Box>
-        </>
+                </Typography>
+            </Button>
+
+        </div>
     )
 }
