@@ -1,15 +1,12 @@
-import {Box, Container, Grid, Paper, Typography} from "@mui/material";
+import {Box, Card, CardContent, Container, Grid, Paper, Typography} from "@mui/material";
 import {Call, Email} from "@mui/icons-material";
 
 export const ContactCards = (): JSX.Element => {
 
     return (
-        <Container maxWidth={"lg"} style={{
+        <Container maxWidth={"md"} style={{
             marginTop: "3rem",
-            width:"100%",
-        }}
-                   id={"kontakty"}
-        >
+        }} id={"kontakty"}>
             <Typography variant={"h4"}>KONTAKTY</Typography>
             <Grid container style={{marginTop: "2rem"}}>
                 <Grid item xs={12} md={6}>
@@ -42,6 +39,22 @@ export const ContactCards = (): JSX.Element => {
                             <Typography variant={"h4"}>schmid@gmail.com</Typography>
                         </Box>
                     </Paper>
+                </Grid>
+            </Grid>
+            <Grid container>
+                <Grid item xs={12} style={{marginTop: "2rem"}}>
+                    <Card sx={{maxWidth: 1300}}>
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="div">
+                                Na Souvrati 6, Praha 6, 160 00
+                            </Typography>
+                        </CardContent>
+                        <iframe
+                            src="https://frame.mapy.cz/s/nozoruvoku"
+                            width={"100%"}
+                            height="400px"
+                            frameBorder="0"/>
+                    </Card>
                 </Grid>
             </Grid>
         </Container>

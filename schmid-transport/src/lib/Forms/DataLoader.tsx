@@ -8,6 +8,7 @@ interface DataLoaderProps {
 }
 
 export const DataLoader = ({apiState, renderSuccess, content}: DataLoaderProps) => {
+    console.log("apiState ", apiState)
     return (
         <>
             {apiState.loading ? (

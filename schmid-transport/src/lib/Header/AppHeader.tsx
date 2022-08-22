@@ -5,7 +5,8 @@ import {
     IconButton,
     ListItem,
     ListItemIcon,
-    Toolbar, Typography,
+    Toolbar,
+    Typography,
     useMediaQuery,
 } from "@mui/material";
 import {useState} from "react";

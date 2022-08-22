@@ -9,6 +9,8 @@ export interface ApiState {
 export const useTransportData = (isFetching:boolean):ApiState => {
     const fetcher = () => fetch("https://api.agify.io?name=meelad").then(res => res.json())
     const { data, error } = useSWR(isFetching ? "TEST" : null, fetcher)
+    console.log("submit form ", data)
+    console.log("isFetching ",isFetching)
 
 
     return {

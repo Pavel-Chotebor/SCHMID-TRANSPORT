@@ -6,9 +6,17 @@ export interface ApiState {
     error: any
 }
 
-export const useTestData = ():ApiState => {
+export const useTestData = (): ApiState => {
     const fetcher = () => fetch("https://api.coindesk.com/v1/bpi/currentprice.json").then(res => res.json())
-    const { data, error,mutate } = useSWR("TEST2", fetcher)
+    const {data, error} = useSWR("TEST2", fetcher, {
+        revalidateOnFocus: false,
+        revalidateOnReconnect: false,
+        refreshWhenOffline: false,
+        refreshWhenHidden: false,
+        refreshInterval: 0,
+        //revalidateIfStale: false
+    })
+    console.log("data fetch ", data)
 
     return {
         data,
