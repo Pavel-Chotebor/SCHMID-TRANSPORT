@@ -9,7 +9,10 @@ import {DataLoader} from "../../Forms/DataLoader";
 import {useTestData} from "../../api/useTestData";
 import {Cancel, Check, ThumbUp} from "@mui/icons-material";
 import {useSWRConfig} from "swr";
-import {createErrorMessage} from "./reservationFormHelper";
+import {ReservationTextInput} from "../../Forms/ReservationTextInput";
+import {FromDataType} from "../../Forms/reservationConstants";
+import {ReservationEmailInput} from "../../Forms/ReservationEmailInput";
+import {ReservationPhoneInput} from "../../Forms/ReservationPhoneInput";
 
 interface FormValues {
     name: string;
@@ -17,19 +20,6 @@ interface FormValues {
     email: string;
     dateFrom: Date;
     dateTo: Date;
-}
-
-export enum FromDataType {
-    NAME = "NAME",
-    SURNAME = "SURNAME",
-    EMAIL = "EMAIL",
-    PHONE_NUMBER = "PHONE_NUMBER",
-    DATE_FROM = "DATE_FROM",
-    DATE_TO = "DATE_TO"
-}
-
-const inputStyle = {
-    margin: "0.5rem"
 }
 
 interface ReservationFormProps {
@@ -85,54 +75,31 @@ export const ReservationForm = ({setIsFormOpen}: ReservationFormProps): JSX.Elem
                         apiState={content}
                         content={
                             <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                <Paper elevation={6} style={{marginTop: "6rem", borderTop: "2rem solid black"}}>
-                                    <Typography textAlign={"center"} variant={"h4"}>PROVÉST
-                                        REZERVACI</Typography>
+                                <Paper elevation={6} style={{marginTop: "8rem", borderRadius: "10px"}}>
+                                    <Typography textAlign={"center"} gutterBottom variant={"h4"}>
+                                        PROVÉST REZERVACI
+                                    </Typography>
                                     <form onSubmit={handleSubmit(onFormSubmit)}>
                                         <Container maxWidth={"sm"}>
                                             <Box display="flex" flexDirection={"column"}>
-                                                <TextField
-                                                    style={inputStyle}
-                                                    label="Jméno"
-                                                    {...register(FromDataType.NAME, {
-                                                        required: true,
-                                                        maxLength: 20
-                                                    })}
-                                                    helperText={
-                                                        createErrorMessage(FromDataType.NAME, errors, 20)
-                                                    }
+                                                <ReservationTextInput
+                                                    label={"Jméno"}
+                                                    name={FromDataType.NAME}
+                                                    register={register}
+                                                    errors={errors}/>
+                                                <ReservationTextInput
+                                                    label={"Příjmení"}
+                                                    name={FromDataType.SURNAME}
+                                                    register={register}
+                                                    errors={errors}
                                                 />
-                                                <TextField
-                                                    style={inputStyle}
-                                                    label="Příjmení"
-                                                    {...register(FromDataType.SURNAME, {
-                                                        required: true,
-                                                        maxLength: 30
-                                                    })}
-                                                    helperText={
-                                                        createErrorMessage(FromDataType.SURNAME, errors, 30)}
+                                                <ReservationEmailInput
+                                                    register={register}
+                                                    errors={errors}
                                                 />
-                                                <TextField
-                                                    style={inputStyle}
-                                                    label="email"
-                                                    {...register(FromDataType.EMAIL, {
-                                                        required: true,
-                                                        maxLength: 40,
-                                                        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-                                                    })}
-                                                    helperText={
-                                                        createErrorMessage(FromDataType.EMAIL, errors, 40)}
-                                                />
-                                                <TextField
-                                                    style={inputStyle}
-                                                    defaultValue={"+420"}
-                                                    label="Telefonní číslo ve formátu (+420 xxx xxx xxx)"
-                                                    {...register("PHONE_NUMBER", {
-                                                        required: true,
-                                                        maxLength: 20,
-                                                        pattern: /^(\+?420)?(2[0-9]{2}|3[0-9]{2}|4[0-9]{2}|5[0-9]{2}|72[0-9]|73[0-9]|77[0-9]|60[1-8]|56[0-9]|70[2-5]|79[0-9])[0-9]{3}[0-9]{3}$/
-                                                    })}
-                                                    helperText={createErrorMessage(FromDataType.PHONE_NUMBER, errors, 12)}
+                                                <ReservationPhoneInput
+                                                    register={register}
+                                                    errors={errors}
                                                 />
                                                 <Box textAlign="center">
                                                     <ReservationDatePicker

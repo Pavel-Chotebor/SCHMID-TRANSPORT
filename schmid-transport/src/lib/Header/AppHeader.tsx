@@ -1,5 +1,5 @@
 import {
-    AppBar,
+    AppBar, Box,
     Button,
     Drawer,
     IconButton,
@@ -24,7 +24,7 @@ export const AppHeader = () => {
     ]
 
     return (
-        <AppBar style={{backgroundColor: "black", color: "white"}}
+        <AppBar style={{color: "black", background: "white"}}
                 position="sticky"> <Toolbar>
             {matches ? (
                 <>
@@ -53,20 +53,26 @@ export const AppHeader = () => {
                         ))}
                     </Drawer>
 
+
                 </>
             ) : (
                 <>
                     <Typography style={{
                         fontFamily: "Caveat, cursive",
                         fontSize: "20px",
-                        marginRight: "20px"
+                        marginRight: "20px",
+                        color: "black"
                     }}>SCHMID TRANSPORT
                     </Typography>
-                    {pageLinks.map((l) => (
-                        <Button sx={{color: "white"}} href={l.link}>
-                            {l.name}
-                        </Button>
-                    ))}
+                    <Box style={{marginLeft: "auto"}}>
+                        {pageLinks.map((l) => (
+                            <Button sx={{color: "black"}} href={l.link}>
+                                <Typography fontSize={"20px"}>
+                                    {l.name}
+                                </Typography>
+                            </Button>
+                        ))}
+                    </Box>
                 </>
             )}
         </Toolbar>
