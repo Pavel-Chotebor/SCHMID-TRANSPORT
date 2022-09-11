@@ -2,13 +2,14 @@ import {Box, Card, CardContent, Container, Grid, Paper, Typography} from "@mui/m
 import {Call, Email} from "@mui/icons-material";
 import {ContactOverview} from "./ContactOverview";
 
-export const ContactCards = (): JSX.Element => {
+export const ContactSection = (): JSX.Element => {
 
     return (
         <Container maxWidth={false} style={{
-            paddingTop: "3rem",
+            padding: 0,
+            backgroundColor: "snow"
         }} id={"kontakty"}>
-            <Typography gutterBottom variant="h4">KONTAKTY</Typography>
+            <Typography color={"black"}  gutterBottom fontFamily={"Montserrat, sans-serif"} fontWeight={600} variant="h4">Kontakty</Typography>
             <ContactOverview/>
         </Container>
     )

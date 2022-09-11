@@ -11,8 +11,8 @@ export const ReservationFormModal = ({isFormOpen, setIsFormOpen}: ReservationFor
 
     return matches ?
         <Drawer sx={{
-            backdropFilter: "blur(3px)",
-        }} anchor={"bottom"} open={isFormOpen} onClose={setIsFormOpen} title={"rezervace"}>
+            backdropFilter: "blur(3px)"
+        }} anchor={"bottom"} open={isFormOpen} onClose={setIsFormOpen} title={"rezervace"} style={ {borderRadius:8}}>
             <ReservationForm setIsFormOpen={setIsFormOpen}/>
         </Drawer>
         : <Modal sx={{

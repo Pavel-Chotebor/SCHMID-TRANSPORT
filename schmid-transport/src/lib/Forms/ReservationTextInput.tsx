@@ -26,6 +26,7 @@ export const ReservationTextInput = ({register, errors, label, name, maxLength =
             }
             multiline={multiline}
             fullWidth
+            sx={{marginTop: "10px", marginBottom:"10px"}}
         />
     )
 }

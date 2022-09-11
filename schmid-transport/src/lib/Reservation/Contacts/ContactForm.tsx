@@ -16,12 +16,14 @@ export const ContactForm = (): JSX.Element => {
     return (
         <Paper elevation={20}
                style={{
-                   borderRadius: "10px",
-                   height: "100%"
+                   borderRadius: 8,
+                   height: "100%",
+                   background: "white"
                }}>
             <Container maxWidth="md">
                 <Box flexDirection="column">
-                    <Typography fontSize={16} gutterBottom>
+                    <Typography fontFamily={"Montserrat, sans-serif"}
+                                fontWeight={200} fontSize={24} gutterBottom>
                         Vyplňte formulář a my Vás budeme kontaktovat ohledně vašeho dotazu.
                     </Typography>
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -54,13 +56,18 @@ export const ContactForm = (): JSX.Element => {
                         <Button
                             variant="outlined"
                             endIcon={<Check/>}
-                            style={{
-                                padding: "1rem 2rem",
-                              //  color: "white",
-                               // backgroundColor: "black",
-                                width: "90%",
-                                marginLeft: "1rem"
-                            }}
+                            style={
+                                {
+                                    borderRadius: 6,
+                                    boxShadow: "1px 23px 44px -12px rgba(231,166,26,0.63)",
+                                    background: "rgb(231,166,26)",
+                                    color: "white",
+                                    //fontWeight: 00,
+                                    border: "none",
+                                    marginTop: "4%",
+                                    padding: "2rem 4rem",
+                                }
+                            }
                             type="submit">
                             <Typography align={"center"}>
                                 ZASLAT DOTAZ

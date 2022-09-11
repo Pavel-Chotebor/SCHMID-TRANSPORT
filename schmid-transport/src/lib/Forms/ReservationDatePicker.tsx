@@ -26,11 +26,10 @@ export const ReservationDatePicker = ({
             render={({field: {onChange, value}}) => (
                 <div style={{margin: "0.3rem"}}>
                     <DatePicker
-
                         label={label}
                         value={value}
                         onChange={onChange}
-                        renderInput={(params) => <TextField {...params} />}
+                        renderInput={(params) => < TextField {...params} sx={{border: "orange"}} />}
                         minDate={minDate}
                         showToolbar
                         toolbarTitle={label}

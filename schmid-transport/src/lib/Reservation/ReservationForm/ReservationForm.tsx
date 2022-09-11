@@ -1,4 +1,4 @@
-import {Box, Button, Container, Grid, Modal, Paper, TextField, Typography} from "@mui/material";
+import {Box, Button, Container, Grid, Modal, Paper, TextField, Typography, useMediaQuery} from "@mui/material";
 import {LocalizationProvider} from "@mui/x-date-pickers"
 import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFns';
 import {useForm} from "react-hook-form";
@@ -32,15 +32,19 @@ export const ReservationForm = ({setIsFormOpen}: ReservationFormProps): JSX.Elem
     const content = useTransportData(isFetching)
     const test = useTestData()
     const {cache, mutate} = useSWRConfig()
+    const matches = !useMediaQuery('(min-width:600px)');
 
     const onFormSubmit = (formData: any) => {
         setIsFetching(true)
     }
 
+
+    console.log("form")
+
     return (
         <DataLoader apiState={test} content={<></>} renderSuccess={
             <Container maxWidth={"sm"}>
-                <Paper elevation={20}
+                <Paper elevation={matches ? 0 : 20}
                        style={{
                            borderRadius: "10px",
                        }}>
@@ -74,9 +78,8 @@ export const ReservationForm = ({setIsFormOpen}: ReservationFormProps): JSX.Elem
                         }
                         apiState={content}
                         content={
-                            <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                <Paper elevation={6} style={{marginTop: "8rem", borderRadius: "10px"}}>
-                                    <Typography textAlign={"center"} gutterBottom variant={"h4"}>
+                                <Paper elevation={0} style={{marginTop: matches ? 0 : "8rem", borderRadius: "10px", marginRight: matches ? 0 : ""}}>
+                                    <Typography textAlign={"center"} mt={"2rem"} gutterBottom variant={"h4"}>
                                         PROVÉST REZERVACI
                                     </Typography>
                                     <form onSubmit={handleSubmit(onFormSubmit)}>
@@ -152,7 +155,6 @@ export const ReservationForm = ({setIsFormOpen}: ReservationFormProps): JSX.Elem
                                         </Container>
                                     </form>
                                 </Paper>
-                            </LocalizationProvider>
                         }
                     />
                 </Paper>

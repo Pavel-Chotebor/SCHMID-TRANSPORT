@@ -19,6 +19,7 @@ export const ReservationPhoneInput = ({register, errors}:ReservationInputInterfa
             })}
             helperText={createErrorMessage(FromDataType.PHONE_NUMBER, errors, 12)}
             fullWidth
+            sx={{marginTop: "10px", marginBottom:"10px"}}
         />
     )
 }

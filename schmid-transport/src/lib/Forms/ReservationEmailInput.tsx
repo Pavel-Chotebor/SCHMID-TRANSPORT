@@ -18,6 +18,7 @@ export const ReservationEmailInput = ({register, errors}: ReservationInputInterf
             helperText={
                 createErrorMessage(FromDataType.EMAIL, errors, 40)}
             fullWidth
+            sx={{marginTop: "10px", marginBottom:"10px"}}
         />
     )
 }
